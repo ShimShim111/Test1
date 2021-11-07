@@ -27,13 +27,14 @@ const MongoURI =
 'mongodb+srv://'+process.env.DB_USERNAME+':'+process.env.DB_PASSWORD+'@cluster0.nvdj3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 ;
 mongoose.connect(MongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(result =>console.log("MongoDB is connected") )
+.then(result =>console.log("MongoDB is now connected") )
 .catch(err => console.log(err));
 
 
 app.get("/home", (req, res) => {
     res.status(200).send("You have everything installed !");
   });
+  
 
 // #Routing to usercontroller here
 
@@ -43,6 +44,7 @@ app.get('/viewflights',userController.viewflights)
 app.delete('/deleteflight',userController.deleteflight)
 app.put('/updateflight',userController.updateflight)
 app.post('/searchflight',userController.searchflight)
+
 
 
 
